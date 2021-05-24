@@ -1,0 +1,41 @@
+{
+  "name": "minimal-react-webpack-babel-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^5.2.5",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "react-hot-loader": "^4.3.11",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.3.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.3",
+    "grommet": "^2.16.3",
+    "grommet-icons": "^4.3.0",
+    "react": "^16.8.0",
+    "react-datasheet": "^1.4.9",
+    "react-dom": "^16.8.0",
+    "react-router-dom": "^5.1.0",
+    "source-map-loader": "^0.2.4",
+    "styled-components": "^4.4.1"
+  }
+}
