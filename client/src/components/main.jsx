@@ -1,6 +1,9 @@
 import React, { useCallback, useState } from "react";
 import { Tabs, Tab, Box, Button } from "grommet";
 import { Data } from "./data";
+import styled from "styled-components";
+
+//const Input = styled``;
 
 const Main = () => {
   const [data, setData] = useState([
@@ -26,7 +29,11 @@ const Main = () => {
       .filter((row) => row[1].value !== undefined && !row[1].readOnly)
       .map((row) => row[1].value);
 
+    const step = 10;
     const values = stringValues.map((v) => parseFloat(v));
+    const max = Math.max(...values);
+    const maxCeil = Math.ceil(max);
+    const maxCharted = (Math.floor(maxCeil / step) + 1) * step;
 
     setGenerating(true);
     const result = await fetch("/create", {
@@ -34,7 +41,7 @@ const Main = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ data: values }),
+      body: JSON.stringify({ data: values, config: { max: maxCharted } }),
     });
 
     const fileName = await result.text();
@@ -44,7 +51,7 @@ const Main = () => {
 
   return (
     <Box align="center" gap="small" margin="small">
-      <Tabs alignControls="start">
+      <Tabs alignControls="start" width="100%">
         <Tab title="Data">
           <Data data={data} setData={setData}></Data>
         </Tab>
